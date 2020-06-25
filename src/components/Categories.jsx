@@ -12,6 +12,7 @@ function Categories({items, onClickItem}) {
 
     return (
         <div className="categories">
+
               <ul>
                 <li className={ activeItem === null ? 'active' : '' }
                  onClick={() => {onSelectItem(null)}}>Все</li>

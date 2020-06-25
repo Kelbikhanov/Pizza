@@ -16,8 +16,11 @@
 
     span {
       color: $orange;
-      border-bottom: 1px dashed $orange;
       cursor: pointer;
+
+      &:hover {
+        border-bottom: 1px dashed $orange;
+      }
     }
   }
 
