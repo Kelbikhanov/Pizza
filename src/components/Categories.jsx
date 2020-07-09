@@ -1,32 +1,63 @@
-import React from 'react'
+import React from 'react';
 
-function Categories({items, onClickItem}) {
+// class Categories extends React.Component {
+//   state = {
+//     activeItem: 3,
+//     test: 123,
+//   };
 
-    const [activeItem, setActiveItem] = React.useState(null);
+//   onSelectItem = (index) => {
+//     this.setState({
+//       activeItem: index,
+//     });
+//   };
 
-    const onSelectItem = (index) => {
-        setActiveItem(index);
-    }
+//   render() {
+//     const { items, onClickItem } = this.props;
+//     console.log(this.state);
+//     return (
+//       <div className="categories">
+//         <ul>
+//           <li>Все</li>
+//           {items.map((name, index) => (
+//             <li
+//               className={this.state.activeItem === index ? 'active' : ''}
+//               onClick={() => this.onSelectItem(index)}
+//               key={`${name}_${index}`}>
+//               {name}
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     );
+//   }
+// }
 
-    console.log(activeItem, setActiveItem);
+function Categories({ items, onClickItem }) {
+  const [activeItem, setActiveItem] = React.useState(null);
 
-    return (
-        <div className="categories">
+  const onSelectItem = (index) => {
+    setActiveItem(index);
+  };
 
-              <ul>
-                <li className={ activeItem === null ? 'active' : '' }
-                 onClick={() => {onSelectItem(null)}}>Все</li>
-                {
-                    items.map((name, index) => ( 
-                    <li 
-                    className={ activeItem === index ? 'active' : '' } 
-                    onClick={() => onSelectItem(index)} key={`${name}_${index}`}>
-                        {name}
-                    </li>
-                    ))}
-              </ul>
-            </div>
-    )
+  return (
+    <div className="categories">
+      <ul>
+        <li className={activeItem === null ? 'active' : ''} onClick={() => onSelectItem(null)}>
+          Все
+        </li>
+        {items &&
+          items.map((name, index) => (
+            <li
+              className={activeItem === index ? 'active' : ''}
+              onClick={() => onSelectItem(index)}
+              key={`${name}_${index}`}>
+              {name}
+            </li>
+          ))}
+      </ul>
+    </div>
+  );
 }
 
 export default Categories;
