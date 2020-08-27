@@ -84,6 +84,14 @@ PizzaBlock.propTypes = {
   sizes: PropTypes.arrayOf(PropTypes.number),
 };
 
+PizzaBlock.defaultProps = {
+  name: '---',
+  price: 0,
+  types: [],
+  sizes: [],
+};
+
+
 console.log(PropTypes);
 
 export default PizzaBlock;
